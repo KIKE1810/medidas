@@ -1,24 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route,Link } from 'react-router-dom';
+import { PageError } from './Pages/404';
+import Frm_Captura from './Pages/Frm_Capura';
+import Login from './Pages/Login';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+          <Routes>
+            <Route path="/" element={<Login></Login>} />
+            <Route path="/Frm_Captura" element={<Frm_Captura></Frm_Captura>} />
+            <Route path="*" element={<PageError></PageError>} />
+          </Routes>
+      </Router>
+    
+    </>
   );
 }
 
